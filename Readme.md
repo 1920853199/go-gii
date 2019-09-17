@@ -1,7 +1,7 @@
 ## Gii beego 自动化代码生成
 
 #### 1.介绍
-Gii 是一个为了协助快速开发 beego 项目而创建的项目，通过 Gii 您可以很容易地为你已存在的数据表在你指定的目录创建 Model 以及 Controller 。它基于 beego 为你写好created ,update,put,已经 delete 等操作方法。
+Gii 是一个为了协助快速开发 beego 项目而创建的项目，通过 Gii 您可以很容易地为你已存在的数据表在你指定的目录创建 Model 以及 Controller 。它基于 beego 为你写好created ,update,put,已及 delete 等操作方法。
 > 注意不能完全依靠 Gii 为你生成的东西，你需要检查一下再进行使用。
 
 #### 2.安装
