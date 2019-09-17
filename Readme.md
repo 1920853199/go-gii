@@ -35,6 +35,10 @@ func main() {
 
 > 直接执行这个文件后会在 beego 项目的目录的 models下生成对应数据表的 model,在 controller 下的指定路径生成控制器
 
+结果：
+
+![](http://117.50.7.147:8888/static/uploads/2019091715571981.png)
+
 Controller ```article.go```代码
 
 ```
