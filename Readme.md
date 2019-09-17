@@ -27,6 +27,12 @@ func main() {
 	//beego.Run()
 }
 ```
+
+参数介绍
+1. 第一个参数 source :数据库连接信息
+2. 第二个参数 name 数据表名称
+3. 第三个参数 controllerPath 是指定 Controller 生成的路径
+
 > 直接执行这个文件后会在 beego 项目的目录的 models下生成对应数据表的 model,在 controller 下的指定路径生成控制器
 
 Controller ```article.go```代码
