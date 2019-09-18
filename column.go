@@ -72,5 +72,5 @@ func Column(soure string){
 
 	createModel(options)
 	options = Options{name:"article"}
-	createConroller(options)
+	createController(options)
 }
