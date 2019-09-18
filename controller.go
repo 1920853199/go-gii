@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func createConroller(op Options)  {
+func createController(op Options)  {
 
 	op.name = strings.Title(op.name)
 	content := `package `
