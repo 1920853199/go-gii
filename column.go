@@ -71,6 +71,6 @@ func Column(soure,table,path string){
 	options := Options{path: "/models", column: columnArr,name:modelName,packet:packet}
 
 	createModel(options)
-	options = Options{name:table,path:path}
+	options = Options{name:table,path:path,namespace:path}
 	createController(options)
 }
