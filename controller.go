@@ -176,6 +176,8 @@ func (c *`+op.name+`Controller) Delete() {
 	dir, _ := os.Getwd()
 	if op.path == "" {
 		op.path = "/controllers"
+	}else{
+		op.path = "/controllers/" + op.path
 	}
 	path := dir + op.path + `/` + strings.ToLower(op.name) + ".go"
 
