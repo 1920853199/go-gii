@@ -22,7 +22,7 @@ import (
 func main() {
 
 	source := "xxxx:xxxxxxxx@tcp(127.0.0.1)/abc"
-	gii.Column(source,"article","")
+	gii.Column(source,"article")
 
 	//beego.Run()
 }
