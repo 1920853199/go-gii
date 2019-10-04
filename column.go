@@ -11,7 +11,7 @@ type column struct {
 	value 	string
 }
 
-func Column(soure string){
+func Column(soure,table string){
 
 	//db, err := sql.Open("mysql", "root:2014gaokao@tcp(172.16.230.140)/abc")
 	db, err := sql.Open("mysql", soure)
@@ -21,7 +21,7 @@ func Column(soure string){
 	}
 	defer db.Close()
 
-	result, err := db.Query("select * from article limit 1")
+	result, err := db.Query("select * from "+table+" limit 1")
 
 	if err != nil {
 		panic(err.Error())
@@ -67,10 +67,10 @@ func Column(soure string){
 		columnArr = append(columnArr,column{key,typeName})
 		
 	}
-
-	options := Options{path: "/models", column: columnArr,name:"Article",packet:packet}
+	modelName := strings.Title(table[0:1])+table[1:]
+	options := Options{path: "/models", column: columnArr,name:modelName,packet:packet}
 
 	createModel(options)
-	options = Options{name:"article"}
+	options = Options{name:table}
 	createController(options)
 }
