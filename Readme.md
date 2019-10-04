@@ -22,7 +22,7 @@ import (
 func main() {
 
 	source := "xxxx:xxxxxxxx@tcp(127.0.0.1)/abc"
-	gii.Column(source,"article")
+	gii.Column(source,"article","")
 
 	//beego.Run()
 }
@@ -135,93 +135,4 @@ func (c *ArticleController) Update() {
 		// 如：valid.Required(message.Reply, "Reply")
 
 		if valid.HasErrors() {
-			// 如果有错误信息，证明验证没通过
-			// 打印错误信息
-			for _, err := range valid.Errors {
-				//log.Println(err.Key, err.Message)
-				response["msg"] = "新增失败！"
-				response["code"] = 500
-				response["err"] = err.Key + " " + err.Message
-				c.Data["json"] = response
-				c.ServeJSON()
-				c.StopRun()
-			}
-		}
-
-		if _, err := o.Update(&obj); err == nil {
-			response["msg"] = "修改成功！"
-			response["code"] = 200
-			response["id"] = id
-		} else {
-			response["msg"] = "修改失败！"
-			response["code"] = 500
-			response["err"] = err.Error()
-		}
-	} else {
-		response["msg"] = "修改失败！"
-		response["code"] = 500
-		response["err"] = "ID 不能为空！"
-	}
-
-	c.Data["json"] = response
-	c.ServeJSON()
-	c.StopRun()
-}
-
-func (c *ArticleController) Delete() {
-	id, _ := c.GetInt("id", 0)
-
-	response := make(map[string]interface{})
-
-	o := orm.NewOrm()
-	obj := models.Article{Id: id}
-
-	if _, err := o.Delete(&obj); err == nil {
-		response["msg"] = "删除成功！"
-		response["code"] = 200
-	}else{
-		response["msg"] = "删除失败！"
-		response["code"] = 500
-		response["err"] = err.Error()
-	}
-
-	c.Data["json"] = response
-	c.ServeJSON()
-	c.StopRun()
-}
-```
-
-Model ```Article.go```代码
-```
-package models
-
-import (
-	"github.com/astaxie/beego/orm"
-    "time"
-)
-
-type Article struct {
-	Id			int
-	Title			string
-	BusinessType			string
-	BusinessName			string
-	DemandType			string
-	Province			string
-	City			string
-	District			string
-	Address			string
-	Content			string		`orm:"type(text)"`
-	PublisherId			float64
-	PublishDate			time.Time		`orm:"type(datetime)"`
-	Created			time.Time		`orm:"auto_now_add;type(datetime)"`
-}
-
-func init() {
-	// 需要在init中注册定义的model
-	orm.RegisterModel(new(Article))
-}
-```
-
-
-## License
-Apache License, Version 2.0
+			// 如果有错误信息
