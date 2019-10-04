@@ -11,7 +11,7 @@ type column struct {
 	value 	string
 }
 
-func Column(soure,table string){
+func Column(soure,table,path string){
 
 	//db, err := sql.Open("mysql", "root:2014gaokao@tcp(172.16.230.140)/abc")
 	db, err := sql.Open("mysql", soure)
@@ -71,6 +71,6 @@ func Column(soure,table string){
 	options := Options{path: "/models", column: columnArr,name:modelName,packet:packet}
 
 	createModel(options)
-	options = Options{name:table}
+	options = Options{name:table,path:path}
 	createController(options)
 }
