@@ -178,6 +178,19 @@ func (c *`+op.name+`Controller) Delete() {
 		op.path = "/controllers"
 	}else{
 		op.path = "/controllers/" + op.path
+	
+		if _, err := os.Stat(dir + op.path); os.IsNotExist(err) {
+			err := os.MkdirAll(dir +op.path, 0711)
+			if err != nil {
+				return
+			}
+		}
+
+		// check again
+		if _, err := os.Stat(dir + op.path); os.IsNotExist(err) {
+			return
+		}
+		
 	}
 	path := dir + op.path + `/` + strings.ToLower(op.name) + ".go"
 
